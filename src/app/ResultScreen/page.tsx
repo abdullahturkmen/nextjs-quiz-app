@@ -43,16 +43,30 @@ export default function Page() {
   }, [usedTotalTime, totalTime]);
 
   return (
-    <main className="grid min-h-full place-items-center  px-6 py-24 sm:py-32 lg:px-8">
-      sonuç ekranı
-      <div>
-        correct answer: {trueAnswerCount} / {totalQuestionLength}
+    <main className="grid h-screen place-items-center content-center px-6 py-24 sm:py-32 lg:px-8">
+      <div className="sm:max-w-xl w-full bg-white text-slate-950 rounded-2xl text-center py-7 px-4">
+        <div>
+          correct answer: {trueAnswerCount} / {totalQuestionLength}
+        </div>
+        <div>{trueAnswerPercent.toFixed(0)} % of answer were correct</div>
+        <div>{timePercent.toFixed(0)} % of total time used</div>
+
+
+
+        <div className="flex items-center justify-center" x-data="{ circumference: 2 * 22 / 7 * 120 }">
+            <svg className="transform -rotate-90 w-72 h-72">
+                <circle cx="145" cy="145" r="120" stroke="currentColor" stroke-width="30" fill="transparent" className="text-gray-100"></circle>
+
+                <circle cx="145" cy="145" r="120" stroke="currentColor" stroke-width="30" fill="transparent" className="text-[#374CB7]" stroke-dasharray="circumference" stroke-dashoffset="circumference - 25 / 100 * circumference"></circle>
+            </svg>
+            <span className="absolute text-5xl" x-text="`${timePercent.toFixed(0)}%`">% {timePercent.toFixed(0)} <span>of total time used</span></span>
+    </div>
+
+
       </div>
-      <div>{trueAnswerPercent.toFixed(0)} % of answer were correct</div>
-      <div>{timePercent.toFixed(0)} % of total time used</div>
       <Link
         href="/CounterScreen"
-        className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        className="rounded-xl bg-[#374CB7] px-3.5 py-5 text-sm text-white mt-5 sm:max-w-xl w-full text-center"
       >
         Try again
       </Link>
