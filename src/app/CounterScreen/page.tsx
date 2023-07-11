@@ -20,9 +20,11 @@ export default function Page() {
   }, [counter]);
 
   return (
-    <main className="grid min-h-full place-items-center  px-6 py-24 sm:py-32 lg:px-8">
-      sayaç ekranııı
-      {counter < 1 ? <p>go</p> : <span>{counter}</span>}
+    <main className="flex justify-center items-center h-screen flex-col">
+      <div className="text-2xl font-semibold pb-8">Your quiz starts in</div>
+      <div className="rounded-full border-8 flex items-center justify-center p-5 aspect-square font-bold">
+        {counter < 1 ? <div className="text-6xl">GO</div> : <div className="text-8xl">{counter}</div>}
+      </div>
     </main>
   );
 }

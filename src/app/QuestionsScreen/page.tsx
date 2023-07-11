@@ -85,6 +85,7 @@ export default function Page() {
       {questionList?.length > 0 &&
       questionList.length != currentQuestionIndex ? (
         <>
+        <div>Question {currentQuestionIndex + 1} / {questionList.length}</div>
           <h1>{questionList[currentQuestionIndex].question}</h1>
 
           <ul>
