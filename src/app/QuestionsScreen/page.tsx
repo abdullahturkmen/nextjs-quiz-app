@@ -88,7 +88,7 @@ export default function Page() {
       {questionList?.length > 0 &&
       questionList.length != currentQuestionIndex ? (
         <>
-          <div className="text-center text-[var(--primary-color)] font-bold mb-6">QuizApp</div>
+          <h1 className="text-center text-[var(--primary-color)] font-bold mb-6">QuizApp</h1>
           <div className="sm:max-w-xl w-full">
             <div className="text-center border rounded-2xl border-gray-100 py-8 px-4 mb-1">
               <span>
@@ -96,7 +96,7 @@ export default function Page() {
               </span>
 
               <div className="flex items-center my-5 text-gray-400 text-xs">
-                {currentQuestionTimer}
+                {currentQuestionTimer}s
                 <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-100 mx-2">
                   <div
                     className="bg-[var(--primary-color)] h-2.5 rounded-full ease-in duration-300"
@@ -105,7 +105,7 @@ export default function Page() {
                     }}
                   ></div>
                 </div>
-                {questionTime}
+                {questionTime}s
               </div>
 
               <h1>{questionList[currentQuestionIndex].question}</h1>

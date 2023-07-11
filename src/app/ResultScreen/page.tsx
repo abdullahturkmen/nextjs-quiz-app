@@ -44,7 +44,7 @@ export default function Page() {
 
   return (
     <main className="grid h-screen place-items-center content-center px-6 py-24 sm:py-32 lg:px-8">
-      <div className="text-center text-white font-bold mb-6">QuizApp</div>
+      <h1 className="text-center text-white font-bold mb-6">QuizApp</h1>
       <div className="sm:max-w-xl w-full bg-white text-slate-950 rounded-2xl text-center py-7 px-4">
         <div className="text-4xl font-medium mb-3">Congratulations!</div>
         <div className="text-xl mb-4">You scored</div>
