@@ -44,29 +44,55 @@ export default function Page() {
 
   return (
     <main className="grid h-screen place-items-center content-center px-6 py-24 sm:py-32 lg:px-8">
+      <div className="text-center text-white font-bold mb-6">QuizApp</div>
       <div className="sm:max-w-xl w-full bg-white text-slate-950 rounded-2xl text-center py-7 px-4">
-        <div>
-          correct answer: {trueAnswerCount} / {totalQuestionLength}
+        <div className="text-4xl font-medium mb-3">Congratulations!</div>
+        <div className="text-xl mb-4">You scored</div>
+
+        <div className=" mb-6">
+          <div className="text-5xl font-medium">
+            {trueAnswerCount}/{totalQuestionLength}
+          </div>
+          <span className="text-sm">correct answers</span>
         </div>
-        <div>{trueAnswerPercent.toFixed(0)} % of answer were correct</div>
-        <div>{timePercent.toFixed(0)} % of total time used</div>
 
+        <div className="flex gap-2 justify-center">
+          <div
+            className="w-28 h-28 rounded-full aspect-square flex items-center justify-center"
+            style={{
+              background: `radial-gradient(closest-side, white 79%, transparent 80% 100%),conic-gradient(from -90deg,var(--primary-color) ${timePercent.toFixed(
+                0
+              )}%, #F0F0F0 0)`,
+            }}
+          >
+            <div className="text-2xl font-black">
+              %{timePercent.toFixed(0)}
+              <div className="w-3/4 mx-auto text-xs font-thin text-gray-400">
+                of total time used
+              </div>
+            </div>
+          </div>
 
-
-        <div className="flex items-center justify-center" x-data="{ circumference: 2 * 22 / 7 * 120 }">
-            <svg className="transform -rotate-90 w-72 h-72">
-                <circle cx="145" cy="145" r="120" stroke="currentColor" stroke-width="30" fill="transparent" className="text-gray-100"></circle>
-
-                <circle cx="145" cy="145" r="120" stroke="currentColor" stroke-width="30" fill="transparent" className="text-[#374CB7]" stroke-dasharray="circumference" stroke-dashoffset="circumference - 25 / 100 * circumference"></circle>
-            </svg>
-            <span className="absolute text-5xl" x-text="`${timePercent.toFixed(0)}%`">% {timePercent.toFixed(0)} <span>of total time used</span></span>
-    </div>
-
-
+          <div
+            className="w-28 h-28 rounded-full aspect-square flex items-center justify-center ease-out duration-3000"
+            style={{
+              background: `radial-gradient(closest-side, white 79%, transparent 80% 100%),conic-gradient(from -90deg,#56C490 ${trueAnswerPercent.toFixed(
+                0
+              )}%, #FE5353 0)`,
+            }}
+          >
+            <div className="text-2xl font-black">
+              %{trueAnswerPercent.toFixed(0)}
+              <div className="w-3/4 mx-auto text-xs font-thin text-gray-400">
+                of answer were correct
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <Link
         href="/CounterScreen"
-        className="rounded-xl bg-[#374CB7] px-3.5 py-5 text-sm text-white mt-5 sm:max-w-xl w-full text-center"
+        className="rounded-xl bg-[var(--primary-color)] px-3.5 py-5 text-sm text-white mt-5 sm:max-w-xl w-full text-center"
       >
         Try again
       </Link>

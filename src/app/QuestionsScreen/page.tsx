@@ -84,71 +84,74 @@ export default function Page() {
   }, [selectedAnswerList]);
 
   return (
-    <main className="grid h-screen bg-white place-items-center text-slate-950 px-6 py-24 sm:py-32 lg:px-8 ">
+    <main className="grid h-screen bg-white place-items-center content-center text-slate-950 px-6 py-24 sm:py-32 lg:px-8 ">
       {questionList?.length > 0 &&
       questionList.length != currentQuestionIndex ? (
-        <div className="sm:max-w-xl w-full">
-          <div className="text-center border rounded-2xl border-gray-100 py-8 px-4 mb-1">
-            <span>
-              Question {currentQuestionIndex + 1} / {questionList.length}
-            </span>
+        <>
+          <div className="text-center text-[var(--primary-color)] font-bold mb-6">QuizApp</div>
+          <div className="sm:max-w-xl w-full">
+            <div className="text-center border rounded-2xl border-gray-100 py-8 px-4 mb-1">
+              <span>
+                Question {currentQuestionIndex + 1} / {questionList.length}
+              </span>
 
-            <div className="flex items-center my-5 text-gray-400 text-xs">
-              {currentQuestionTimer}
-              <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-100 mx-2">
-                <div
-                  className="bg-[#374CB7] h-2.5 rounded-full "
-                  style={{
-                    width: `${(currentQuestionTimer * 100) / questionTime}%`,
-                  }}
-                ></div>
-              </div>
-              {questionTime}
-            </div>
-
-            <h1>{questionList[currentQuestionIndex].question}</h1>
-          </div>
-          <ul>
-            {questionList[currentQuestionIndex]["answers"].map(
-              (e: any, index: number) => (
-                <li
-                  key={index}
-                  className={`flex items-center cursor-pointer ${
-                    selectedAnswer == e.id
-                      ? "border-[#374CB7]"
-                      : "border-gray-100"
-                  }  border rounded-2xl p-5 mb-1`}
-                  onClick={() => clickOption(e.id)}
-                >
+              <div className="flex items-center my-5 text-gray-400 text-xs">
+                {currentQuestionTimer}
+                <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-100 mx-2">
                   <div
-                    className={`rounded-full p-2 me-2 bg-gray-100 border-4  ${
-                      selectedAnswer == e.id
-                        ? "border-[#374CB7] "
-                        : "border-gray-100"
-                    }`}
+                    className="bg-[var(--primary-color)] h-2.5 rounded-full ease-in duration-300"
+                    style={{
+                      width: `${(currentQuestionTimer * 100) / questionTime}%`,
+                    }}
                   ></div>
-                  <button
-                    className={`${
-                      selectedAnswer == e.id
-                        ? "text-[#374CB7]"
-                        : "text-gray-800"
-                    }`}
-                  >
-                    {e.option}
-                  </button>
-                </li>
-              )
-            )}
-          </ul>
+                </div>
+                {questionTime}
+              </div>
 
-          <button
-            className="disabled:bg-[#9E9E9E] text-white bg-[#FF6A66] rounded-2xl py-5 text-sm w-full mt-8"
-            onClick={() => nextQuestion()}
-            disabled={!selectedAnswer}
-          >
-            Next
-          </button>
-        </div>
+              <h1>{questionList[currentQuestionIndex].question}</h1>
+            </div>
+            <ul>
+              {questionList[currentQuestionIndex]["answers"].map(
+                (e: any, index: number) => (
+                  <li
+                    key={index}
+                    className={`ease-in duration-300 flex items-center cursor-pointer ${
+                      selectedAnswer == e.id
+                        ? "border-[var(--primary-color)]"
+                        : "border-gray-100"
+                    }  border rounded-2xl p-5 mb-1`}
+                    onClick={() => clickOption(e.id)}
+                  >
+                    <div
+                      className={`rounded-full p-2 me-2 bg-gray-100 border-4  ${
+                        selectedAnswer == e.id
+                          ? "border-[var(--primary-color)] "
+                          : "border-gray-100"
+                      }`}
+                    ></div>
+                    <button
+                      className={`${
+                        selectedAnswer == e.id
+                          ? "text-[var(--primary-color)]"
+                          : "text-gray-800"
+                      }`}
+                    >
+                      {e.option}
+                    </button>
+                  </li>
+                )
+              )}
+            </ul>
+
+            <button
+              className="disabled:bg-[#9E9E9E] text-white bg-[var(--main-color)] rounded-2xl py-5 text-sm w-full mt-8"
+              onClick={() => nextQuestion()}
+              disabled={!selectedAnswer}
+            >
+              Next
+            </button>
+          </div>
+        </>
       ) : (
         <h2>loading çalışacak</h2>
       )}
