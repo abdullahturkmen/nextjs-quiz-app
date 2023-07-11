@@ -17,7 +17,6 @@ export default function Page() {
       return router.push("/");
     }
     var resultData = JSON.parse(localStorage.getItem("results")!);
-    console.log("local : ", resultData);
 
     setTotalQuestionLength(resultData.questionList.length);
 

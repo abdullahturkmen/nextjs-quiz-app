@@ -8,14 +8,15 @@ export default function SplashScreen() {
   }, []);
 
   return (
-    <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <main className="grid h-screen place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div>
-        <div className="text-center">
-          <p className="text-base font-semibold text-indigo-600">QuizApp</p>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Things to know before you start:
-          </h1>
-        </div>
+        <p className="text-base font-semibold text-indigo-600 text-center">
+          QuizApp
+        </p>
+        <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 max-w-max m-auto">
+          Things to know before you start:
+        </h1>
+
         <ul role="list" className="mt-8 text-sm leading-6 text-gray-600">
           <li className="flex gap-x-3">
             <svg

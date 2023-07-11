@@ -4,17 +4,17 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-color: #FF6A66;
+  --main-color: #FF6A66;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-color: #FF6A66;
+    --main-color: #FF6A66;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: var(--background-color);
+  background: var(--main-color);
 }

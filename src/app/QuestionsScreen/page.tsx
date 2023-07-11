@@ -10,7 +10,7 @@ export default function Page() {
   const [selectedAnswerList, setSelectedAnswerList] = useState<any[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<any | null>(null);
-  const questionTime = process.env.NEXT_PUBLIC_QUESTION_TIME;
+  const questionTime = Number(process.env.NEXT_PUBLIC_QUESTION_TIME);
   const [currentQuestionTimer, setCurrentQuestionTimer] =
     useState<any>(questionTime);
 
@@ -57,7 +57,10 @@ export default function Page() {
     }
     setSelectedAnswerList([
       ...selectedAnswerList,
-      { answerID: tempAnswer, usedTime: Number(questionTime) - currentQuestionTimer },
+      {
+        answerID: tempAnswer,
+        usedTime: questionTime - currentQuestionTimer,
+      },
     ]);
     setSelectedAnswer(null);
     setCurrentQuestionIndex((currentQuestionIndex) => currentQuestionIndex + 1);
@@ -81,25 +84,61 @@ export default function Page() {
   }, [selectedAnswerList]);
 
   return (
-    <main className="grid min-h-full place-items-center  px-6 py-24 sm:py-32 lg:px-8">
+    <main className="grid h-screen bg-white place-items-center text-slate-950 px-6 py-24 sm:py-32 lg:px-8">
       {questionList?.length > 0 &&
       questionList.length != currentQuestionIndex ? (
         <>
-        <div>Question {currentQuestionIndex + 1} / {questionList.length}</div>
-          <h1>{questionList[currentQuestionIndex].question}</h1>
+          <div className="text-center border rounded-2xl border-gray-100 p-5">
+            <span>
+              Question {currentQuestionIndex + 1} / {questionList.length}
+            </span>
 
+            <div className="flex items-center my-5 text-gray-400 text-xs">
+              {currentQuestionTimer}
+              <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-100 mx-2">
+                <div
+                  className="bg-blue-600 h-2.5 rounded-full "
+                  style={{
+                    width: `${(currentQuestionTimer * 100) / questionTime}%`,
+                  }}
+                ></div>
+              </div>
+              {questionTime}
+            </div>
+
+            <h1>{questionList[currentQuestionIndex].question}</h1>
+          </div>
           <ul>
-            {questionList[currentQuestionIndex]["answers"].map((e:any, index:number) => (
-              <li
-                key={index}
-                className={selectedAnswer == e.id ? "active-answer" : ""}
-              >
-                <button onClick={() => clickOption(e.id)}>{e.option}</button>
-              </li>
-            ))}
+            {questionList[currentQuestionIndex]["answers"].map(
+              (e: any, index: number) => (
+                <li
+                  key={index}
+                  className={`flex items-center cursor-pointer ${
+                    selectedAnswer == e.id
+                      ? "border-blue-800"
+                      : "border-gray-100"
+                  }  border rounded-2xl p-5 mb-1`}
+                  onClick={() => clickOption(e.id)}
+                >
+                  <div
+                    className={`rounded-full p-2 me-2 bg-gray-100 border-4  ${
+                      selectedAnswer == e.id ? "border-blue-800 " : "border-gray-100"
+                    }`}
+                  ></div>
+                  <button
+                    className={`${
+                      selectedAnswer == e.id ? "text-blue-800" : "text-gray-800"
+                    }`}
+                    
+                  >
+                    {e.option}
+                  </button>
+                </li>
+              )
+            )}
           </ul>
 
-          <button onClick={() => nextQuestion()} disabled={!selectedAnswer}>
+          <button className="disabled:bg-gray-100 text-white bg-[#FF6A66] rounded-2xl p-5 text-sm" onClick={() => nextQuestion()} disabled={!selectedAnswer}>
             Next
           </button>
         </>
