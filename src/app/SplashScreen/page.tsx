@@ -52,7 +52,7 @@ export default function SplashScreen() {
                 considered incorrect.
               </li>
             </ul>
-            <div className="mt-10 flex items-center justify-center gap-x-6 sm:relative absolute bottom-[32px] sm:w-fit w-full left-[50%] px-6 pt-6" style={{transform: 'translate(-50%, 0)'}}>
+            <div className="mt-10 flex items-center justify-center gap-x-6 md:relative absolute bottom-[32px] sm:w-fit w-full left-[50%] px-6 pt-6" style={{transform: 'translate(-50%, 0)'}}>
               <Link
                 href="/CounterScreen"
                 className="rounded-xl bg-[var(--main-color)] px-8 py-5 text-sm text-white  w-full text-center"
