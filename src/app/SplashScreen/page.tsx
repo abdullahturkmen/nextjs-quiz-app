@@ -25,7 +25,7 @@ export default function SplashScreen() {
             </h2>
 
             <ul role="list" className="mt-8 text-sm leading-6 text-gray-400 max-w-lg mb-5">
-              <li className="flex gap-x-3">
+              <li className="flex gap-x-3 mb-2">
                 <svg
                   className="w-5 h-5 mr-2 text-[var(--main-color)] flex-shrink-0"
                   aria-hidden="true"
@@ -65,7 +65,7 @@ export default function SplashScreen() {
               <img
                 src="/splash-img.svg"
                 alt="Logo"
-                className="rounded-3xl relative right-[-15%] bottom-[-15%] max-h-64 mx-auto my-6"
+                className="rounded-3xl relative right-[-15%] bottom-[-15%] max-h-64 mx-auto md:mt-0 mt-8 md:max-h-full"
               />
           </div>
         </div>
