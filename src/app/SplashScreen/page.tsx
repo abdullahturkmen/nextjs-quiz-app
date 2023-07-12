@@ -1,13 +1,24 @@
 "use client";
-import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import splashImg from "./../../../public/splash-img.svg";
+import { useRouter } from "next/navigation";
+
 
 export default function SplashScreen() {
+  const router = useRouter();
+
+  const [startLoading, setStartLoading] = useState(false);
   useEffect(() => {
     localStorage.removeItem("results");
   }, []);
+
+  const startGame = () => {
+    setStartLoading(true)
+    setTimeout(() => {
+      router.push("/CounterScreen")
+    }, 1000);
+  };
 
   return (
     <main className="grid h-screen place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
@@ -60,23 +71,26 @@ export default function SplashScreen() {
               className="mt-10 flex items-center justify-center gap-x-6 md:relative absolute bottom-[32px] md:w-fit w-full left-[50%] px-6 pt-6 z-10"
               style={{ transform: "translate(-50%, 0)" }}
             >
-              <Link
-                href="/CounterScreen"
+              <button
+                onClick={() => startGame()}
                 className="rounded-xl bg-[var(--main-color)] px-8 py-5 text-sm text-white w-full text-center"
               >
                 Let's Get Started
-              </Link>
+              </button>
             </div>
           </div>
           <div className="flex-1">
             <Image
-              alt={process.env.NEXT_PUBLIC_PROJECT_TITLE || ''}
+              alt={process.env.NEXT_PUBLIC_PROJECT_TITLE || ""}
               src={splashImg}
               className="rounded-3xl relative right-[-15%] bottom-[-15%] max-h-64 mx-auto md:mt-0 mt-8 md:max-h-full"
             />
           </div>
         </div>
       </div>
+      {startLoading && (
+        <div className="animation-start h-0 w-full bg-[var(--main-color)] absolute left-0 z-20 bottom-0"></div>
+      )}
     </main>
   );
 }

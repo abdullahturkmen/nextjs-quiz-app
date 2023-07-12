@@ -52,3 +52,14 @@ body {
     height: 150vh;
   }
 }
+
+.animation-start{
+  animation: start .2s 0s linear forwards;
+}
+
+@keyframes start {
+  to {
+    height: 100vh;
+   
+  }
+}

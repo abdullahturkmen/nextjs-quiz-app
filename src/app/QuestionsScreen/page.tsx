@@ -107,7 +107,7 @@ export default function Page() {
                 {currentQuestionTimer}s
                 <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-100 mx-2">
                   <div
-                    className="bg-[var(--primary-color)] h-2.5 rounded-full ease-in duration-300"
+                    className="bg-[var(--primary-color)] h-2.5 rounded-full ease-in duration-500"
                     style={{
                       width: `${(currentQuestionTimer * 100) / questionTime}%`,
                     }}
