@@ -7,6 +7,7 @@ import Loading from "../components/Loading";
 export default function Page() {
   const router = useRouter();
 
+  const [resultLoading, setResultLoading] = useState(false);
   const [questionList, setQuestionList] = useState<any[]>([]);
   const [selectedAnswerList, setSelectedAnswerList] = useState<any[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -85,7 +86,10 @@ export default function Page() {
           selectedAnswerList: selectedAnswerList,
         })
       );
-      return router.push("/ResultScreen");
+      setResultLoading(true);
+      setTimeout(() => {
+        return router.push("/ResultScreen");
+      }, 1000);
     }
   }, [selectedAnswerList]);
 
@@ -161,7 +165,11 @@ export default function Page() {
           </div>
         </>
       ) : (
-        <Loading />
+        <>{!resultLoading && <Loading />}</>
+      )}
+
+      {resultLoading && (
+        <div className="animation-result h-0 w-full bg-[var(--main-color)] absolute left-0 z-30 bottom-0"></div>
       )}
     </main>
   );

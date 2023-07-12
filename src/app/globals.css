@@ -40,7 +40,8 @@ body {
 
 
 .animation-go {
-  animation: go .5s .5s linear forwards;
+  animation: go .4s .5s linear forwards;
+  aspect-ratio: 1;
 }
 
 @keyframes go {
@@ -49,11 +50,12 @@ body {
     height: 0;
   }
   100% {
-    height: 150vh;
+    width: 4000px;
+    height: 4000px;
   }
 }
 
-.animation-start{
+.animation-start,.animation-result{
   animation: start .2s 0s linear forwards;
 }
 
