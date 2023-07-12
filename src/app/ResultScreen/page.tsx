@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import resultCup from "./../../../public/result-cup-img.svg";
 import resultCupAnim from "./../../../public/result-cup-img-anim.svg";
+import Loading from "../components/Loading";
 
 export default function Page() {
   const router = useRouter();
@@ -67,7 +68,7 @@ export default function Page() {
               />
             </div>
 
-            <div className="text-4xl font-medium mb-3">Congratulations!</div>
+            <div className="sm:text-2xl md:text-4xl  text-xl font-medium mb-3">Congratulations!</div>
             <div className="text-xl mb-4">You scored</div>
 
             <div className=" mb-6">
@@ -77,7 +78,7 @@ export default function Page() {
               <span className="text-sm">correct answers</span>
             </div>
 
-            <div className="flex gap-2 justify-center">
+            <div className="flex gap-2 justify-center items-center sm:flex-row flex-col">
               <div
                 className="w-28 h-28 rounded-full aspect-square flex items-center justify-center"
                 style={{
@@ -95,7 +96,7 @@ export default function Page() {
               </div>
 
               <div
-                className="w-28 h-28 rounded-full aspect-square flex items-center justify-center ease-out duration-3000"
+                className="w-28 h-28 rounded-full aspect-square flex items-center justify-center"
                 style={{
                   background: `radial-gradient(closest-side, white 79%, transparent 80% 100%),conic-gradient(from -90deg,#56C490 ${trueAnswerPercent.toFixed(
                     0
@@ -120,7 +121,7 @@ export default function Page() {
         </>
       ) : (
         <>
-          <div>loading çlışacak</div>
+          <Loading />
         </>
       )}
     </main>

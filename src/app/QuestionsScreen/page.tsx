@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import quizAnswers from "./../data/questions";
 import { useRouter } from "next/navigation";
+import Loading from "../components/Loading";
 
 export default function Page() {
   const router = useRouter();
@@ -15,7 +16,10 @@ export default function Page() {
     useState<any>(questionTime);
 
   useEffect(() => {
-    localStorage.removeItem("results");
+    if (localStorage.getItem("results") !== null) {
+      localStorage.removeItem("results");
+      return router.push("/CounterScreen");
+    }
     setQuestionList(reOrderList(quizAnswers.questions));
     questionTimer();
   }, []);
@@ -55,7 +59,7 @@ export default function Page() {
     var tempUsedTime = questionTime;
     if (selectedAnswer != null) {
       tempAnswer = selectedAnswer;
-      tempUsedTime = questionTime - currentQuestionTimer
+      tempUsedTime = questionTime - currentQuestionTimer;
     }
     setSelectedAnswerList([
       ...selectedAnswerList,
@@ -90,7 +94,9 @@ export default function Page() {
       {questionList?.length > 0 &&
       questionList.length != currentQuestionIndex ? (
         <>
-          <h1 className="text-center text-[var(--primary-color)] font-bold mb-6">{process.env.NEXT_PUBLIC_PROJECT_TITLE}</h1>
+          <h1 className="text-center text-[var(--primary-color)] font-bold mb-6">
+            {process.env.NEXT_PUBLIC_PROJECT_TITLE}
+          </h1>
           <div className="sm:max-w-xl w-full">
             <div className="text-center border rounded-2xl border-gray-100 py-8 px-4 mb-1">
               <span>
@@ -155,7 +161,7 @@ export default function Page() {
           </div>
         </>
       ) : (
-        <h2>loading çalışacak</h2>
+        <Loading />
       )}
     </main>
   );

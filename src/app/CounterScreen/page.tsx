@@ -8,6 +8,7 @@ export default function Page() {
   const [counter, setCounter] = useState(3);
 
   useEffect(() => {
+    localStorage.removeItem("results");
     setInterval(() => {
       setCounter((counter) => counter - 1);
     }, 1000);
