@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
 import Image from "next/image";
+import splashImg from "./../../../public/splash-img.svg";
 
 export default function SplashScreen() {
   useEffect(() => {
@@ -24,7 +25,10 @@ export default function SplashScreen() {
               Things to know before you start:
             </h2>
 
-            <ul role="list" className="mt-8 text-sm leading-6 text-gray-400 max-w-lg mb-5">
+            <ul
+              role="list"
+              className="mt-8 text-sm leading-6 text-gray-400 max-w-lg mb-5"
+            >
               <li className="flex gap-x-3 mb-2">
                 <svg
                   className="w-5 h-5 mr-2 text-[var(--main-color)] flex-shrink-0"
@@ -52,7 +56,10 @@ export default function SplashScreen() {
                 considered incorrect.
               </li>
             </ul>
-            <div className="mt-10 flex items-center justify-center gap-x-6 md:relative absolute bottom-[32px] md:w-fit w-full left-[50%] px-6 pt-6 z-10" style={{transform: 'translate(-50%, 0)'}}>
+            <div
+              className="mt-10 flex items-center justify-center gap-x-6 md:relative absolute bottom-[32px] md:w-fit w-full left-[50%] px-6 pt-6 z-10"
+              style={{ transform: "translate(-50%, 0)" }}
+            >
               <Link
                 href="/CounterScreen"
                 className="rounded-xl bg-[var(--main-color)] px-8 py-5 text-sm text-white w-full text-center"
@@ -62,11 +69,11 @@ export default function SplashScreen() {
             </div>
           </div>
           <div className="flex-1">
-              <img
-                src="/splash-img.svg"
-                alt={process.env.NEXT_PUBLIC_PROJECT_TITLE}
-                className="rounded-3xl relative right-[-15%] bottom-[-15%] max-h-64 mx-auto md:mt-0 mt-8 md:max-h-full"
-              />
+            <Image
+              alt={process.env.NEXT_PUBLIC_PROJECT_TITLE || ''}
+              src={splashImg}
+              className="rounded-3xl relative right-[-15%] bottom-[-15%] max-h-64 mx-auto md:mt-0 mt-8 md:max-h-full"
+            />
           </div>
         </div>
       </div>

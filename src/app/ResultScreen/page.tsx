@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import resultCup from "./../../../public/result-cup-img.svg";
+import resultCupAnim from "./../../../public/result-cup-img-anim.svg";
 
 export default function Page() {
   const router = useRouter();
@@ -51,11 +54,17 @@ export default function Page() {
           </h1>
           <div className="sm:max-w-xl w-full bg-white text-slate-950 rounded-2xl text-center py-7 px-4">
             <div className="relative w-fit mx-auto flex justify-center mb-8">
-              <img
-                src="/result-cup-img-anim.svg"
+             
+              <Image
+                alt="resultCup"
+                src={resultCupAnim}
                 className="absolute bottom-0 animation-confeti"
               />
-              <img src="/result-cup-img.svg" className="relative z-10" />
+              <Image
+                alt="resultCup"
+                src={resultCup}
+                className="relative z-10"
+              />
             </div>
 
             <div className="text-4xl font-medium mb-3">Congratulations!</div>
