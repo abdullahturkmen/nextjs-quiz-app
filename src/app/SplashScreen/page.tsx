@@ -15,7 +15,7 @@ export default function SplashScreen() {
           className="text-3xl font-semibold text-[var(--primary-color)] text-center mb-8 absolute top-[32px] left-[50%]"
           style={{ transform: "translate(-50%, 0)" }}
         >
-          QuizApp
+          {process.env.NEXT_PUBLIC_PROJECT_TITLE}
         </h1>
 
         <div className="flex flex-col md:flex-row items-center sm:max-w-8/12 w-full">
@@ -64,7 +64,7 @@ export default function SplashScreen() {
           <div className="flex-1">
               <img
                 src="/splash-img.svg"
-                alt="Logo"
+                alt={process.env.NEXT_PUBLIC_PROJECT_TITLE}
                 className="rounded-3xl relative right-[-15%] bottom-[-15%] max-h-64 mx-auto md:mt-0 mt-8 md:max-h-full"
               />
           </div>

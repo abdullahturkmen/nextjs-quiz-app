@@ -41,7 +41,7 @@ export default function Page() {
   };
 
   useEffect(() => {
-    if (currentQuestionTimer == 0) {
+    if (currentQuestionTimer < 0) {
       nextQuestion();
     }
   }, [currentQuestionTimer]);
@@ -52,14 +52,16 @@ export default function Page() {
 
   const nextQuestion = () => {
     var tempAnswer = 0;
+    var tempUsedTime = questionTime;
     if (selectedAnswer != null) {
       tempAnswer = selectedAnswer;
+      tempUsedTime = questionTime - currentQuestionTimer
     }
     setSelectedAnswerList([
       ...selectedAnswerList,
       {
         answerID: tempAnswer,
-        usedTime: questionTime - currentQuestionTimer,
+        usedTime: tempUsedTime,
       },
     ]);
     setSelectedAnswer(null);
@@ -88,7 +90,7 @@ export default function Page() {
       {questionList?.length > 0 &&
       questionList.length != currentQuestionIndex ? (
         <>
-          <h1 className="text-center text-[var(--primary-color)] font-bold mb-6">QuizApp</h1>
+          <h1 className="text-center text-[var(--primary-color)] font-bold mb-6">{process.env.NEXT_PUBLIC_PROJECT_TITLE}</h1>
           <div className="sm:max-w-xl w-full">
             <div className="text-center border rounded-2xl border-gray-100 py-8 px-4 mb-1">
               <span>

@@ -21,12 +21,14 @@ export default function Page() {
 
   return (
     <main className="flex justify-center items-center h-screen flex-col">
-      <h1 className="text-3xl font-semibold text-white text-center mb-8 absolute top-[32px] left-[50%]" style={{transform: 'translate(-50%, 0)'}}>
-          QuizApp
-        </h1>
+      <h1
+        className="text-3xl font-semibold text-white text-center mb-8 absolute top-[32px] left-[50%]"
+        style={{ transform: "translate(-50%, 0)" }}
+      >
+        {process.env.NEXT_PUBLIC_PROJECT_TITLE}
+      </h1>
       <div className="text-2xl font-semibold pb-8">Your quiz starts in</div>
-      <div
-        className="rounded-full border-8 flex items-center justify-center p-5 aspect-square font-bold w-48 h-48">
+      <div className="rounded-full border-8 flex items-center justify-center p-5 aspect-square font-bold w-48 h-48">
         {counter < 1 ? (
           <div className="text-6xl">GO</div>
         ) : (

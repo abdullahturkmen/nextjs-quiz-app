@@ -19,3 +19,23 @@ body {
   color: rgb(var(--foreground-rgb));
   background: var(--main-color);
 }
+
+.animation-confeti {
+  animation: confeti 0.25s 1s linear forwards;
+  opacity: 0;
+  max-height: 0;
+}
+
+@keyframes confeti {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    max-height: 100%;
+  }
+}
