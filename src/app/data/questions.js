@@ -2,72 +2,72 @@ export default {
     questions: [
         {
             id: 1,
-            question: "Birinci Soru",
+            question: "What is the process of converting analog signals into digital data called?",
             answers: [
                 {
-                    option: "Yanlış Cevap",
+                    option: "Encoding",
                     id: 1,
                 },
                 {
-                    option: "Yanlış Cevap",
+                    option: "Decoding",
                     id: 2,
                 },
                 {
-                    option: "Doğru Cevap",
+                    option: "Encryption",
                     id: 3,
                 },
                 {
-                    option: "Yanlış Cevap",
-                    id: 4,
-                },
-            ],
-            trueAnswerID: 3
-        },
-        {
-            id: 2,
-            question: "İkinci Soru",
-            answers: [
-                {
-                    option: "Doğru Cevap",
-                    id: 1,
-                },
-                {
-                    option: "Yanlış Cevap",
-                    id: 2,
-                },
-                {
-                    option: "Yanlış Cevap",
-                    id: 3,
-                },
-                {
-                    option: "Yanlış Cevap",
-                    id: 4,
-                },
-            ],
-            trueAnswerID: 1
-        },
-        {
-            id: 3,
-            question: "Üçüncü Soru",
-            answers: [
-                {
-                    option: "Yanlış Cevap",
-                    id: 1,
-                },
-                {
-                    option: "Doğru Cevap",
-                    id: 2,
-                },
-                {
-                    option: "Yanlış Cevap",
-                    id: 3,
-                },
-                {
-                    option: "Yanlış Cevap",
+                    option: "Modulation",
                     id: 4,
                 },
             ],
             trueAnswerID: 2
+        },
+        {
+            id: 2,
+            question: "What is the smallest unit of digital information?",
+            answers: [
+                {
+                    option: "Byte",
+                    id: 1,
+                },
+                {
+                    option: "Bit",
+                    id: 2,
+                },
+                {
+                    option: "Megabyte",
+                    id: 3,
+                },
+                {
+                    option: "Gigabyte",
+                    id: 4,
+                },
+            ],
+            trueAnswerID: 2
+        },
+        {
+            id: 3,
+            question: "Which programming language is used for web development?",
+            answers: [
+                {
+                    option: "PHP",
+                    id: 1,
+                },
+                {
+                    option: "Ruby",
+                    id: 2,
+                },
+                {
+                    option: "Swift",
+                    id: 3,
+                },
+                {
+                    option: "HTML",
+                    id: 4,
+                },
+            ],
+            trueAnswerID: 4
         },
     ],
 }
