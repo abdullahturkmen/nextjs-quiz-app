@@ -31,7 +31,7 @@ export default function Page() {
       <div className="text-2xl font-semibold pb-8">Your quiz starts in</div>
       <div className="rounded-full border-8 flex items-center justify-center p-5 aspect-square font-bold w-48 h-48">
         {counter < 1 ? (
-          <div className="text-6xl">GO</div>
+          <div className="text-6xl relative">GO<span className="animation-go bg-white rounded-full aspect-square absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"></span></div>
         ) : (
           <div className="text-8xl">{counter}</div>
         )}

@@ -59,7 +59,7 @@ export default function Page() {
               <Image
                 alt="resultCup"
                 src={resultCupAnim}
-                className="absolute bottom-0 animation-confeti"
+                className="absolute bottom-0 animation-confeti opacity-0 max-h-0"
               />
               <Image
                 alt="resultCup"
@@ -78,7 +78,7 @@ export default function Page() {
               <span className="text-sm">correct answers</span>
             </div>
 
-            <div className="flex gap-2 justify-center items-center sm:flex-row flex-col">
+            <div className="flex gap-2 justify-center items-center">
               <div
                 className="w-28 h-28 rounded-full aspect-square flex items-center justify-center"
                 style={{
