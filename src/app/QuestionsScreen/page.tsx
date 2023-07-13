@@ -8,6 +8,8 @@ export default function Page() {
   const router = useRouter();
 
   const [resultLoading, setResultLoading] = useState(false);
+  const [showNextQuestionAnimation, setShowNextQuestionAnimation] =
+    useState(false);
   const [questionList, setQuestionList] = useState<any[]>([]);
   const [selectedAnswerList, setSelectedAnswerList] = useState<any[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -56,22 +58,34 @@ export default function Page() {
   };
 
   const nextQuestion = () => {
+    setShowNextQuestionAnimation(true);
+    setTimeout(() => {
+      setShowNextQuestionAnimation(false);
+    }, 1000);
     var tempAnswer = 0;
     var tempUsedTime = questionTime;
     if (selectedAnswer != null) {
       tempAnswer = selectedAnswer;
       tempUsedTime = questionTime - currentQuestionTimer;
     }
-    setSelectedAnswerList([
-      ...selectedAnswerList,
-      {
-        answerID: tempAnswer,
-        usedTime: tempUsedTime,
-      },
-    ]);
-    setSelectedAnswer(null);
-    setCurrentQuestionIndex((currentQuestionIndex) => currentQuestionIndex + 1);
-    setCurrentQuestionTimer(questionTime);
+   
+    setTimeout(() => {
+      setSelectedAnswerList([
+        ...selectedAnswerList,
+        {
+          answerID: tempAnswer,
+          usedTime: tempUsedTime,
+        },
+      ]);
+      setSelectedAnswer(null);
+      
+     
+      setCurrentQuestionIndex(
+        (currentQuestionIndex) => currentQuestionIndex + 1
+      );
+    
+    }, 500);
+   setCurrentQuestionTimer(questionTime);
   };
 
   useEffect(() => {
@@ -103,7 +117,7 @@ export default function Page() {
           </h1>
           <div className="sm:max-w-xl w-full">
             <div className="text-center border rounded-2xl border-gray-100 py-8 px-4 mb-1">
-              <span>
+              <span className={`${showNextQuestionAnimation && "animation-next"}`}>
                 Question {currentQuestionIndex + 1} / {questionList.length}
               </span>
 
@@ -120,7 +134,11 @@ export default function Page() {
                 {questionTime}s
               </div>
 
-              <h1>{questionList[currentQuestionIndex].question}</h1>
+              <h1
+                className={`${showNextQuestionAnimation && "animation-next"}`}
+              >
+                {questionList[currentQuestionIndex].question}
+              </h1>
             </div>
             <ul>
               {questionList[currentQuestionIndex]["answers"].map(
