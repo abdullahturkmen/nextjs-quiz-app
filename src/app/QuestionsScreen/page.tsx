@@ -61,7 +61,7 @@ export default function Page() {
     setShowNextQuestionAnimation(true);
     setTimeout(() => {
       setShowNextQuestionAnimation(false);
-    }, 1000);
+    }, 200);
     var tempAnswer = 0;
     var tempUsedTime = questionTime;
     if (selectedAnswer != null) {
@@ -82,7 +82,7 @@ export default function Page() {
       setCurrentQuestionIndex(
         (currentQuestionIndex) => currentQuestionIndex + 1
       );
-    }, 500);
+    }, 100);
     setCurrentQuestionTimer(questionTime);
   };
 
