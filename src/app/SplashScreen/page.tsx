@@ -4,7 +4,6 @@ import Image from "next/image";
 import splashImg from "./../../../public/splash-img.svg";
 import { useRouter } from "next/navigation";
 
-
 export default function SplashScreen() {
   const router = useRouter();
 
@@ -14,9 +13,9 @@ export default function SplashScreen() {
   }, []);
 
   const startGame = () => {
-    setStartLoading(true)
+    setStartLoading(true);
     setTimeout(() => {
-      router.push("/CounterScreen")
+      router.push("/CounterScreen");
     }, 1000);
   };
 

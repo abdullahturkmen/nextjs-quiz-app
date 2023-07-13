@@ -55,7 +55,6 @@ export default function Page() {
           </h1>
           <div className="sm:max-w-xl w-full bg-white text-slate-950 rounded-2xl text-center py-7 px-4">
             <div className="relative w-fit mx-auto flex justify-center mb-8">
-             
               <Image
                 alt="resultCup"
                 src={resultCupAnim}
@@ -68,7 +67,9 @@ export default function Page() {
               />
             </div>
 
-            <div className="sm:text-2xl md:text-4xl  text-xl font-medium mb-3">Congratulations!</div>
+            <div className="sm:text-2xl md:text-4xl  text-xl font-medium mb-3">
+              Congratulations!
+            </div>
             <div className="text-xl mb-4">You scored</div>
 
             <div className=" mb-6">

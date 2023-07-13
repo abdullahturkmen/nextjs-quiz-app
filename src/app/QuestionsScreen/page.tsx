@@ -68,7 +68,7 @@ export default function Page() {
       tempAnswer = selectedAnswer;
       tempUsedTime = questionTime - currentQuestionTimer;
     }
-   
+
     setTimeout(() => {
       setSelectedAnswerList([
         ...selectedAnswerList,
@@ -78,14 +78,12 @@ export default function Page() {
         },
       ]);
       setSelectedAnswer(null);
-      
-     
+
       setCurrentQuestionIndex(
         (currentQuestionIndex) => currentQuestionIndex + 1
       );
-    
     }, 500);
-   setCurrentQuestionTimer(questionTime);
+    setCurrentQuestionTimer(questionTime);
   };
 
   useEffect(() => {
@@ -108,7 +106,7 @@ export default function Page() {
   }, [selectedAnswerList]);
 
   return (
-    <main className="grid h-screen bg-white place-items-center content-center text-slate-950 px-6 py-24 sm:py-32 lg:px-8 ">
+    <main className="grid h-screen bg-white place-items-center content-center text-slate-950 px-6 py-24 sm:py-32 lg:px-8 overflow-x-hidden">
       {questionList?.length > 0 &&
       questionList.length != currentQuestionIndex ? (
         <>
@@ -117,7 +115,9 @@ export default function Page() {
           </h1>
           <div className="sm:max-w-xl w-full">
             <div className="text-center border rounded-2xl border-gray-100 py-8 px-4 mb-1">
-              <span className={`${showNextQuestionAnimation && "animation-next"}`}>
+              <span
+                className={`relative ${showNextQuestionAnimation && "animation-next"}`}
+              >
                 Question {currentQuestionIndex + 1} / {questionList.length}
               </span>
 
@@ -135,7 +135,7 @@ export default function Page() {
               </div>
 
               <h1
-                className={`${showNextQuestionAnimation && "animation-next"}`}
+                className={`relative ${showNextQuestionAnimation && "animation-next"}`}
               >
                 {questionList[currentQuestionIndex].question}
               </h1>
